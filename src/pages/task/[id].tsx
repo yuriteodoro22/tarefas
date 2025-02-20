@@ -3,8 +3,20 @@ import styles from './styles.module.css'
 import { GetServerSideProps } from 'next';
 import { db } from '../../services/firebaseconnection'
 import { doc, collection, query, where, getDoc } from 'firebase/firestore';
+import { Textarea } from '@/components/textarea';
 
-export default function Task(){
+interface TaskProps{
+    item: {
+        tarefa: string;
+        public: boolean;
+        created: string;
+        user: string;
+        taskId: string;
+
+    }
+}
+
+export default function Task( { item } : TaskProps ){
     return(
         <div className={styles.container}>
             <Head>
@@ -13,7 +25,21 @@ export default function Task(){
 
             <main className={styles.main}>
                 <h1>Tarefa</h1>
+                <article className={styles.task}>
+                    <p>{item?.tarefa}</p>
+                </article>
             </main>
+
+            <section className={styles.commentsContainer}>
+                <h2>Deixar comentário</h2>
+
+                <form>
+                    <Textarea
+                    placeholder='Digite seu comentário...'
+                    />
+                    <button className={styles.button}>Enviar comentário</button>                 
+                </form>
+            </section>
         </div>
     )
 }
@@ -58,6 +84,8 @@ const task = {
 console.log(task)
 
     return{
-        props: {}
-    }
-}
+        props: {
+            item: task
+        },
+    };
+};
