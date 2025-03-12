@@ -91,12 +91,6 @@ src/
 └── tsconfig.json
 ```
 
-## Melhorias Futuras
-
-- Implementação de categorias para organização de tarefas.
-- Notificações para lembretes de tarefas.
-- Exportação de tarefas para PDF ou CSV.
-
 ## Licença
 
 Este projeto está licenciado sob a MIT License. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
