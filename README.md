@@ -1,40 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Tarefas+ 📝
 
-## Getting Started
+Tarefas+ é uma aplicação web desenvolvida com **Next.js** e **Firebase** que permite gerenciar tarefas de forma eficiente. Os usuários podem criar, editar e excluir tarefas, além de optar por compartilhá-las publicamente.
 
-First, run the development server:
+## Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Autenticação Segura**
+  - Login e cadastro via **NextAuth** (Google Authentication).
+- **Gerenciamento de Tarefas**
+  - Criar, editar e excluir tarefas.
+  - Salvar tarefas privadas ou públicas.
+  - Compartilhamento de tarefas via link.
+- **Banco de Dados Firebase Firestore**
+  - Armazena as tarefas do usuário.
+  - Lista apenas as tarefas associadas ao usuário logado.
+- **Interface Responsiva**
+  - Design adaptável para desktops, tablets e smartphones.
+
+## Tecnologias Utilizadas
+
+- **Next.js** para renderização do lado do servidor (SSR)
+- **TypeScript** para tipagem segura
+- **Firebase Firestore** para armazenamento de dados
+- **NextAuth** para autenticação
+- **CSS Modules** para estilização modular
+
+## Estrutura do Projeto
+
+- **`pages`** → Estrutura do Next.js com as páginas principais
+  - `index.tsx` → Página inicial
+  - `dashboard.tsx` → Página do usuário logado
+  - `task/[id].tsx` → Página individual de cada tarefa
+- **`components`** → Componentes reutilizáveis
+  - `Textarea.tsx` → Componente customizado de texto
+- **`services/firebaseConnection.ts`** → Conexão com o Firebase Firestore
+- **`styles`** → CSS Modules para estilização
+
+## Instalação e Configuração
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/tarefas-plus.git
+   ```
+2. Acesse o diretório do projeto:
+   ```bash
+   cd tarefas-plus
+   ```
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
+4. Configure o Firebase e NextAuth:
+   - **Crie um arquivo `.env.local`** com as credenciais do Firebase e Google Auth:
+     ```plaintext
+     NEXT_PUBLIC_FIREBASE_API_KEY=xxx
+     NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=xxx
+     NEXT_PUBLIC_FIREBASE_PROJECT_ID=xxx
+     NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=xxx
+     NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=xxx
+     NEXT_PUBLIC_FIREBASE_APP_ID=xxx
+     NEXTAUTH_SECRET=xxx
+     NEXTAUTH_URL=http://localhost:3000
+     ```
+5. Execute a aplicação:
+   ```bash
+   npm run dev
+   ```
+6. Acesse no navegador:
+   ```
+   http://localhost:3000
+   ```
+
+## Estrutura de Diretórios
+
+```plaintext
+src/
+├── components/
+│   ├── Textarea.tsx
+├── pages/
+│   ├── index.tsx
+│   ├── dashboard.tsx
+│   ├── task/[id].tsx
+├── services/
+│   ├── firebaseConnection.ts
+├── styles/
+│   ├── styles.module.css
+├── _app.tsx
+├── _document.tsx
+├── next.config.ts
+├── package.json
+└── tsconfig.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Melhorias Futuras
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- Implementação de categorias para organização de tarefas.
+- Notificações para lembretes de tarefas.
+- Exportação de tarefas para PDF ou CSV.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Licença
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+Este projeto está licenciado sob a MIT License. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+**Desenvolvido por Yuri Teodoro**
